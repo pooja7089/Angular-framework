@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<header class="flex-container flex-center">
+  <div  class="width-half">
+    <form [formGroup]='stateForm'>
+    <div class='pos-rel'>
+        <div class="col-md-36" style="text-align:center">
+        <div class="col-md-12" style="font-size:22px">Search </div>
+      <label for="search">
+        <li class='fa fa-search icon-pos color-indigo'></mdb-icon>
+      </label>
+      <mdb-icon fas icon="search"></mdb-icon>
+      <input id='search' placeholder="Search" (click)="toggleDropDown()"fas icon='search' class='input-underline search-bar'type="bra">
+      <div clickOutside(clickOutside)="toggleDropDown()" class="state-container-dropdown">
+      </div>
+      <div (click)="selectValue(s)" class='state'*ngFor='let of states |searchFilter:getSearchValue()'>
+        
+      </div>
+    </div>
+    </form>
+  </div>
+  <meta charset="utf-8">
+  <title>Dictionary</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<style>
+  body {
+    background-color:blue;
+  }
+</style>
+<body>
+  <div class="flex-containercard-container flex-wrap flex-center">
+    <div *ngFor='let s of states |searchFilter:getSearchValue()'class='flex-containercard-dimension card flex-center width'>
+      <div class='width-5'></div>
+      
+      <div class='width-5'></div>
+
+    </div>
+  </div>
+  <app-root></app-root>
+</body>
+</html>
+
